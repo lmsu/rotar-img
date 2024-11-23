@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para el cuerpo (body) */
+.body-foto {
+    display: flex;
+    /* Utiliza Flexbox para el diseño */
+    flex-direction: column;
+    /* Organiza los carruseles en columna */
+    align-items: center;
+    /* Centra los elementos hijos verticalmente */
+    justify-content: center;
+    /* Centra los elementos hijos horizontalmente */
+    min-height: 100vh;
+    /* Altura mínima del 100% del alto de la ventana gráfica */
+    background: #100101;
+    /* Fondo de color negro oscuro */
+}
+
+/* Estilos para el contenedor principal (container) */
+.contenedor-foto {
+    position: relative;
+    /* Posición relativa para el posicionamiento de elementos secundarios */
+    width: 450px;
+    /* Ancho fijo de 450 píxeles */
+    height: 350px;
+    /* Altura fija de 350 píxeles */
+    transform-style: preserve-3d;
+    /* Mantiene la perspectiva 3D en los elementos secundarios */
+    animation: image 20s linear infinite;
+    /* Aplica una animación llamada 'image' que dura 20 segundos, es lineal y se repite infinitamente */
+    margin-bottom: 20px;
+    /* Espacio entre los carruseles */
+}
+
+/* Define la animación 'image' */
+@keyframes image {
+    0% {
+        transform: perspective(3000px) rotateY(0deg);
+        /* Inicia la animación con rotación en el eje Y */
+    }
+
+    50% {
+        transform: perspective(3000px) rotateY(180deg);
+        /* Rotación completa en el eje Y */
+    }
+
+    100% {
+        transform: perspective(3000px) rotateY(360deg);
+        /* Rotación completa en el eje Y */
+    }
+}
+
+/* Estilos para las imágenes dentro del contenedor (img) */
+.contenedor-foto .img {
+    position: absolute;
+    /* Posición absoluta para el posicionamiento */
+    width: 100%;
+    /* Ancho del 100% del contenedor */
+    height: 100%;
+    /* Altura del 100% del contenedor */
+    background: var(--img);
+    /* Fondo con una variable CSS personalizada */
+    background-size: cover;
+    /* Ajusta la imagen para cubrir completamente el espacio */
+    transform: rotateY(calc(var(--i) * 90deg)) translateZ(300px);
+    /* Aplica una rotación en el eje Y y una traslación en el eje Z */
+}
+
+h1 {
+    color: #fff;
+    margin-top: 10%;
+    font-size: 60px;
+}
